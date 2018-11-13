@@ -1,0 +1,66 @@
+body{
+    background-color: pink;
+}
+/* this is the colour of the background*/
+
+h1{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: white;
+   text-align: center;
+   margin-top: 20px;
+}
+/* this is the styling for h1*/
+
+.form{
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    margin-bottom: 20px;
+}
+/* this is the styling for the form*/
+
+.btn_custom {
+    background-color:  #B21E6D;
+    border-color:  #B21E6D;
+    margin-top: 20px
+}
+/* this is the styling for my reset and submit buttons*/
+
+.standard_text {
+    color: white;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+}
+/* this is the styling for the standard text in the project*/
+
+.leaderboard{
+    color: white;
+    border-style: solid;
+    border-color: white;
+    padding: 5px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+/* this is the styling for the leaderboard*/
+
+h6{
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+}
+h2{
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+}
+/* this is the styling for h2 */
+
+
+tr:hover {background-color: #B21E6D;}
+/* this is the colour of the hover on the leaderboard*/
+
+input, select, textarea{
+    color: #B21E6D;
+}
+/* this is the colour of the inputted text*/
+textarea:focus, input:focus {
+    color: #B21E6D;
+}
+/* this is the colour of the inputted text*/
