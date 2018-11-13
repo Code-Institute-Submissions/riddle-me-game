@@ -69,13 +69,13 @@ def index():
                 result = "Too Low"
             else:
                 result = "Too High"
-           
+                # this is if the users answer is too high or too low, this will appear when the user has submitted an answer
             if current_game["level"] == 4:   
                 return render_template('gameover.html')
-    
-                # this is if the users answer is too high or too low, this will appear when the user has submitted an answer
+    # this is to return the gameover.html page after level 3 is complete.
+           
     return render_template('index.html', answer=answer, result=result, user_name=user_name, current_game=current_game,
                            leaderboard=leaderboard)
-
+# this is returning to the html page
 
 app.run(host=os.getenv('IP'), port=int(os.getenv('PORT')), debug=True)
