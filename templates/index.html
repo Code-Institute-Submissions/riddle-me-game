@@ -1,0 +1,102 @@
+<html lang="en">
+<!--- languag of program-->
+<head>
+    <!--- this is the head of the page-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--- meta tags-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css" />
+<!--- links to the css and bootsrap-->
+    <title>Riddle Me Game</title>
+<!--- title of program-->
+</head>
+<!--- this is the end of the head-->
+
+<body>
+<!--- this is the body of the page-->
+    <div class="container">
+
+        <div class="row">
+
+
+            <div class="col-md-12 text-center">
+
+                {%if not user_name %}
+                <h2>Please choose a Username!</h2>
+                <!--- text - asking the user to input a name-->
+                <form method="post" class="form">
+                    Username:<br>
+                    <input type="text" name="user_name"><br>
+                    <input type="submit" class="btn btn-primary btn_custom" value="Submit">
+                </form>
+                <!--- the form for the user to input a username-->
+                {%else%}
+                <h2>Welcome {{user_name}}</h2>
+                <!--- a welcome heading using the users username-->
+                <h2>What Number Am I Thinking Of? (Level {{current_game.level}})</h2>
+                <!--- simple text stating the aim of the game and the level you are on-->
+                <span class="standard_text">Current Guess Count: {{current_game.guesses}}</span>
+                <!--- this counts how many guesses the user has had per level-->
+                <form method="post" class="form">
+                    Answer:<br>
+                    <input type="text" name="answer" value=""><br>
+                <!--- this is a form that allows the user to input an answer-->
+                    <input type="submit" value="Submit" class="btn btn-primary btn_custom"> {%endif%} {%if result%}
+                    <!--- this is the submit button for the form above-->
+                    <br><br> Your Result: {{result}}
+                    <!--- this shows the user their results-->
+                    <!-- Jim helped me with the django snytax-->
+                    <br><br> Your Guess: {{answer}} {%endif%}
+                    <!-- this shows the user their guesses-->
+                    <!--- Jim also helped with the django synax here too-->
+                    <br>
+                    <Br>
+                    <a class="btn btn-primary btn_custom" href="/?reset=True">reset</a>
+                    <!--- this is a reset button which resets the game-->
+                </form>
+{% for message in messages %}
+    {{ message }}    
+{% endfor %} 
+
+                <table class="table leaderboard">
+                    <!--- this is a standard table used as a leaderboard-->
+                    <h2>Leaderboard</h2>
+                    <!--- standard heading stating the leaderboard is below-->
+                    <tr>
+                        <th>Username</th>
+                        <th>Place</th>
+                        <th>Level 1</th>
+                        <th>Level 2</th>
+                        <th>Level 3</th>
+                        <th>Overall Points</th>
+                        <!--- this is the leaderboard titles-->
+                    </tr>
+                    {%for p in leaderboard %}
+                    <tr>
+                        <td>{{p.player}}</td>
+                        <td>{{loop.index}}</td>
+                        <td>{{p.results['1']}}</td>
+                        <td>{{p.results['2']}}</td>
+                        <td>{{p.results['3']}}</td>
+                        <td>{{p.total_guesses}}</td>
+                    </tr>
+                    <!-- this is putting the results in to the leaderboard-->
+                    <!--- Jim helped me with getting the results on to the leaderboard-->
+                    {%endfor%}
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--- thesesare links to jquery and bootstrap-->
+</body>
+<!--- this is the end of the body-->
+
+</html>
+<!--- this is the end of the project-->
