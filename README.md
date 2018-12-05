@@ -54,6 +54,4 @@ the game. It also is clear and easy to read.
 * Does the game recongise when the correct number has been inputted?
 * Does the game tell the user to guess higher or lower correctly?
 
-### Credits
 
-Jim Richmond
